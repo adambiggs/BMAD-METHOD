@@ -3,7 +3,7 @@ const { BaseIdeSetup } = require('./_base-ide');
 const prompts = require('../../../lib/prompts');
 const { AgentCommandGenerator } = require('./shared/agent-command-generator');
 const { BMAD_FOLDER_NAME, toDashPath } = require('./shared/path-utils');
-const fs = require('fs-extra');
+const fs = require('../../../lib/fs');
 const csv = require('csv-parse/sync');
 const yaml = require('yaml');
 

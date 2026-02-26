@@ -1,5 +1,5 @@
 const path = require('node:path');
-const fs = require('fs-extra');
+const fs = require('../../../../lib/fs');
 const csv = require('csv-parse/sync');
 const prompts = require('../../../../lib/prompts');
 const { toColonPath, toDashPath, customAgentColonName, customAgentDashName, BMAD_FOLDER_NAME } = require('./path-utils');

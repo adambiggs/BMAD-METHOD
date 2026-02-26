@@ -1,5 +1,5 @@
 const path = require('node:path');
-const fs = require('fs-extra');
+const fs = require('../../../../lib/fs');
 
 /**
  * Helpers for gathering BMAD agents/tasks from the installed tree.
