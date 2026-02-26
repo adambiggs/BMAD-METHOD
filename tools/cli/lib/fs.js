@@ -114,7 +114,10 @@ module.exports.copy = async function copy(src, dest, options = {}) {
       try {
         await fsp.access(dest);
         return; // dest exists, skip
-      } catch {
+      } catch (error) {
+        if (error && error.code !== 'ENOENT' && error.code !== 'ENOTDIR') {
+          throw error;
+        }
         // dest doesn't exist, proceed
       }
     }
