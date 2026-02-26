@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fs = require('../../../lib/fs');
 const path = require('node:path');
 const { BMAD_FOLDER_NAME } = require('./shared/path-utils');
 const prompts = require('../../../lib/prompts');

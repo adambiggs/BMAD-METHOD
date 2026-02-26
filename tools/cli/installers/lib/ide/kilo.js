@@ -157,7 +157,7 @@ class KiloSetup extends BaseIdeSetup {
    * @param {string} workflowsDir - Workflows directory path
    */
   async clearBmadWorkflows(workflowsDir) {
-    const fs = require('fs-extra');
+    const fs = require('../../../lib/fs');
     if (!(await fs.pathExists(workflowsDir))) return;
 
     const entries = await fs.readdir(workflowsDir);
@@ -172,7 +172,7 @@ class KiloSetup extends BaseIdeSetup {
    * Cleanup KiloCode configuration
    */
   async cleanup(projectDir, options = {}) {
-    const fs = require('fs-extra');
+    const fs = require('../../../lib/fs');
     const kiloModesPath = path.join(projectDir, this.configFile);
 
     if (await fs.pathExists(kiloModesPath)) {

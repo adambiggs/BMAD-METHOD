@@ -12,7 +12,7 @@
  */
 
 const path = require('node:path');
-const fs = require('fs-extra');
+const fs = require('../tools/cli/lib/fs');
 const { YamlXmlBuilder } = require('../tools/cli/lib/yaml-xml-builder');
 const { ManifestGenerator } = require('../tools/cli/installers/lib/core/manifest-generator');
 
@@ -68,7 +68,9 @@ async function runTests() {
     const tempOutput = path.join(__dirname, 'temp-pm-agent.md');
 
     try {
-      const result = await builder.buildAgent(pmAgentPath, null, tempOutput, { includeMetadata: true });
+      const result = await builder.buildAgent(pmAgentPath, null, tempOutput, {
+        includeMetadata: true,
+      });
 
       assert(result && result.outputPath === tempOutput, 'Agent compilation returns result object with outputPath');
 
@@ -168,7 +170,9 @@ async function runTests() {
     const tempOutput = path.join(__dirname, 'temp-qa-agent.md');
 
     try {
-      const result = await builder.buildAgent(qaAgentPath, null, tempOutput, { includeMetadata: true });
+      const result = await builder.buildAgent(qaAgentPath, null, tempOutput, {
+        includeMetadata: true,
+      });
       const compiled = await fs.readFile(tempOutput, 'utf8');
 
       assert(compiled.includes('QA Engineer'), 'QA agent compilation includes agent title');
